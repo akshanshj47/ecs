@@ -7,7 +7,7 @@ availability_zones = ["ap-south-1a", "ap-south-1b"]
 public_subnets     = ["10.20.100.0/24", "10.20.101.0/24"]
 private_subnets    = ["10.20.0.0/24", "10.20.1.0/24"]
 
-app_name        = "node-js-app"
+app_name        = "test-app"
 app_environment = "production"
 
 #database_name     = "nodejsdatabase"
