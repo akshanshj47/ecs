@@ -36,8 +36,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
           "awslogs-group": "${aws_cloudwatch_log_group.log-group.id}",
           "awslogs-region": "${var.aws_region}",
           "awslogs-stream-prefix": "${var.app_name}-${var.app_environment}"
-        }
-      },
+        },
       "portMappings": [
         {
           "containerPort": 8080,
