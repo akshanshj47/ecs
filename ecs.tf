@@ -6,9 +6,6 @@ resource "aws_ecs_cluster" "aws-ecs-cluster" {
   }
 }
 
-resource "aws_cloudwatch_log_group" "log-group" {
-  name = "${var.app_name}-${var.app_environment}-logs"
-
   tags = {
     Application = var.app_name
     Environment = var.app_environment
@@ -30,12 +27,6 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "entryPoint": [],
       "environment": "${data.template_file.env_vars.rendered}",
       "essential": true,
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "${aws_cloudwatch_log_group.log-group.id}",
-          "awslogs-region": "${var.aws_region}",
-          "awslogs-stream-prefix": "${var.app_name}-${var.app_environment}"
         },
       "portMappings": [
         {
